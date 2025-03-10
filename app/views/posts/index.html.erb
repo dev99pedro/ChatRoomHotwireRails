@@ -1,0 +1,54 @@
+<div>
+<%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+</div>
+
+<div>
+    <%= @user %>
+</div>
+
+<% @post.each do |posts| %>
+<div class="card-post">
+    <p> <%= posts.title %>  </p>
+    <p> <%= posts.description %>  </p>
+    <p> <%= posts.user.login %>  </p>
+    <p> <%= posts.user.email %>  </p>
+    <div>
+        <%= link_to 'Show post', post_path(posts) %>
+    </div>
+    <div>
+        <%= link_to 'Edit post', edit_post_path(posts) %>
+    </div>
+    <div>
+      
+        <% like = posts.likes.find_by(user: current_user) %>
+        <% if like %>
+
+        <%= button_to 'Descurtir', post_like_path(posts, like), remote: true,  method: :delete %>
+         <%= posts.likes.count %>
+        <% else %>
+
+        <%= button_to 'Curtir', post_likes_path(posts), remote: true,  method: :post %>
+        <%= posts.likes.count %>
+        
+        <% end %>
+
+
+
+    </div>
+</div>
+<% end %>
+
+
+
+
+
+
+
+
+    
+
+<div>
+    <%= link_to 'Create New Post', new_post_path %>
+</div>
+
+
