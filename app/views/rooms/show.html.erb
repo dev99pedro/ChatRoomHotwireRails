@@ -1,0 +1,22 @@
+<%= turbo_stream_from "updateusername" %>
+<%# precisa ter isso para ativar o  Turbo::StreamsChannel %>
+<%= button_to "Back to rooms", room_path(@room), method: :delete, data: { confirm: 'Tem certeza que quer sair da sala?' } %>
+
+ <span> usuários na sala: <%= render 'room', room: @room , user: @user%></span>
+
+<%# renderizando a partial %>
+
+<%= form_with model: [@room, Chat.new] do | form | %> 
+    <%=form.text_field :content %>
+    <%= form.submit "Salvar" %>
+<% end %>
+
+
+
+<div id="updatechat">
+  <%= render @room.chats %>
+</div>
+
+<%= turbo_stream_from @room, target: "updatechat" %>
+<%# precisa ter isso para ativar o  after_create_commit -> { broadcast_append_to room, target: "updatechat" }%>
+

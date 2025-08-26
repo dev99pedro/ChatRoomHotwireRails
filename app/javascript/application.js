@@ -1,11 +1,8 @@
-//= require rails-ujs
-//= require activestorage
-//= require turbolinks
-//= require_tree .
 
-import "@hotwired/turbo-rails"
 import "controllers"
-import "stylesheets/application"
+import "@hotwired/turbo-rails"
+import { application } from "controllers/application"
+import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
 
-
-
+eagerLoadControllersFrom("controllers", application)
+import "controllers"

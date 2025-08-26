@@ -1,0 +1,7 @@
+<div id="<%= dom_id(room) %>">
+  <% room.users.each do |user| %>
+    <div id="<%= dom_id (user) %>">
+      <p><%= user.email %></p>
+    </div>
+  <% end %>
+</div>

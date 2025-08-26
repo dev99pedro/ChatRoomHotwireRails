@@ -1,7 +1,9 @@
-import { Application } from "stimulus"
-import { definitionsFromContext } from "stimulus/webpack-helpers"
-const application = Application.start()
-console.log("Stimulus carregado!")
+import { Application } from "@hotwired/stimulus"
 
-const context = require.context("controllers", true, /_controller\.js$/)
-application.load(definitionsFromContext(context))
+const application = Application.start()
+
+// Configure Stimulus development experience
+application.debug = false
+window.Stimulus   = application
+
+export { application }
