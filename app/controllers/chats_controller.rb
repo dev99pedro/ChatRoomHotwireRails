@@ -8,8 +8,8 @@ class ChatsController < ApplicationController
     @chat.save
   end
 
-  
-  
+
+
 
   private
 
@@ -17,6 +17,4 @@ class ChatsController < ApplicationController
   def chat_params
     params.require(:chat).permit(:content)
   end
-
-
 end
