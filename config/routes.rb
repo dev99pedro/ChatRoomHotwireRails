@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :posts do
-    resources :comments, only: [:create]
-    resources :likes, only: [:create, :destroy]  # Adicionando a rota para 'likes'
+    resources :comments, only: [ :create ]
+    resources :likes, only: [ :create, :destroy ]  # Adicionando a rota para 'likes'
   end
-  
- 
+
+
   resources :rooms do
     resources :chats
   end

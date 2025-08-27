@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user! 
-  before_action :set_post, only: [:edit, :update]
+  before_action :authenticate_user!
+  before_action :set_post, only: [ :edit, :update ]
 
   def index
     @post = Post.all
@@ -15,21 +15,20 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    
+
 
     if @post.save
-      redirect_to root_path, notice: 'Post criado'
+      redirect_to root_path, notice: "Post criado"
     else
-        redirect_to root_path, notice: 'error to create post'
+        redirect_to root_path, notice: "error to create post"
     end
   end
-  
+
 
   def show
     @post = Post.find(params[:id])
-
   end
-  
+
 
   def post_params
     params.require(:post).permit(:title, :description)
@@ -44,13 +43,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def update 
+  def update
     @post.update(post_params)
-    redirect_to root_path, notice: 'atualizado'
+    redirect_to root_path, notice: "atualizado"
   end
-
-
-  
-
-
 end

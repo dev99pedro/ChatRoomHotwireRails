@@ -7,6 +7,6 @@ class CreateLikes < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_index :likes, [:user_id, :post_id], unique: true # Garante que o mesmo usuário não possa curtir o mesmo post mais de uma vez
+    add_index :likes, [ :user_id, :post_id ], unique: true # Garante que o mesmo usuário não possa curtir o mesmo post mais de uma vez
   end
 end

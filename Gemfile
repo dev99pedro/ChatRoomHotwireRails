@@ -1,26 +1,27 @@
 source "https://rubygems.org"
 
-#byebug
-gem 'byebug', group: [:development, :test]
+# byebug
+gem "byebug", group: [ :development, :test ]
 
-#gem jquery
-gem 'jquery-rails'
+# gem jquery
+gem "jquery-rails"
 
-#webpacket
-gem 'webpacker'
+# webpacket
+gem "webpacker"
 
-#gem device
-gem 'devise'
+# gem device
+gem "devise"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
+#aqui é um teste para o commit
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem 'stimulus-rails'
+gem "stimulus-rails"
 gem "hotwire-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -44,7 +45,7 @@ gem "kamal", require: false
 
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
-gem 'tzinfo-data'
+gem "tzinfo-data"
 gem "importmap-rails"
 gem "turbo-rails"
 
@@ -62,7 +63,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec-rails'
+  gem "rspec-rails"
 end
 
 group :development do
