@@ -9,6 +9,7 @@ gem "jquery-rails"
 # webpacket
 gem "webpacker"
 
+
 # gem device
 gem "devise"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

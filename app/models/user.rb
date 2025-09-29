@@ -6,13 +6,10 @@ class User < ApplicationRecord
 
   validates :login, presence: true, uniqueness: true
 
-  has_many :posts
-  has_many :comments
-  has_many :likes
 
 
 
-
+  
   has_many :chats
   belongs_to :room, optional: true
 end

@@ -1,3 +1,39 @@
-<% @rooms.each do | room | %>
-  <%= link_to room.name, room_path(room) %><br>
-<% end %>
+
+
+
+<div class="rooms-home-page-container" data-controller="log-button">
+  <% if user_signed_in? %>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn-logout" %>
+  <% end %>
+  <h5>Rooms</h5>
+    <div class="rooms-home-page">
+      <div>
+        <%= turbo_stream_from "updatecountuser" %>
+        <div class="room-box-container">
+          <% @rooms.each do | room | %>
+              <div class="room-box">
+                <div>
+                  <%= render "rooms/countuser", room: room %>
+                </div>
+                <div class="link-room" >
+                  <%= link_to room.name, room_path(room),  data: {turbo_frame: "room_chat", "log-button-target": "openchat",  action: "click->log-button#openChat"} %><br>
+                  <%# aqui ta chamando data: {turbo_frame: "qualquer nome"} %>
+                </div>
+              </div>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to "Create Room", new_room_path%>
+        </div>
+      </div>
+      <div class="chat-open">
+        <turbo-frame id="room_chat">
+          
+        </turbo-frame>
+        <%# aqui precisa chamar aonde tu quer renderizar o turbo-frame com o mesmo id que passou ali em cima %>
+        <%# e dai tu bota de novo esse turbo-frame id="room_chat" em volta do que tu quer que renderize aqui, no caso estou chamando isso na view show %>
+      </div>
+    </div>
+</div>
+
+

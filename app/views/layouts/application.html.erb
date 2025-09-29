@@ -23,6 +23,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    
+    <main class="container mx-auto mt-28 px-5 flex">
+      <div style="display: flex;background-color: #b3cde0">
+        <%= render "shared/side_bar" %>
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

@@ -1,0 +1,10 @@
+<div id="<%= dom_id(room, :index) %>">
+   <div style="display: flex; align-items: self-end; gap: 2px;padding-left: 3px">
+        <% if room.users.count > 0 %>
+            <%= image_tag("/images/onlineicon.png", alt: "icon", style: "margin-bottom: 1px;", class: "icon-online-offline")%>
+        <% else %>
+            <%= image_tag("/images/offlineicon.png", alt: "icon", style: "width: 15px !important;" , class: "icon-online-offline")%>
+        <% end %>
+        <p class="users-online"> <%= room.users.count %> users online </p>
+    </div>
+</div>

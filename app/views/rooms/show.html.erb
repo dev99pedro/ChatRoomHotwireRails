@@ -1,22 +1,26 @@
+
+
+<%# tudo que estiver dentro desse turbo-frame room_chat vai ser chamado e renderizado la na view index %>
+<turbo-frame id="room_chat">
 <%= turbo_stream_from "updateusername" %>
-<%# precisa ter isso para ativar o  Turbo::StreamsChannel %>
 <%= button_to "Back to rooms", room_path(@room), method: :delete, data: { confirm: 'Tem certeza que quer sair da sala?' } %>
-
- <span> usuários na sala: <%= render 'room', room: @room , user: @user%></span>
-
+<%= render "rooms/room", room: @room %>
 <%# renderizando a partial %>
+
+
 
 <%= form_with model: [@room, Chat.new] do | form | %> 
     <%=form.text_field :content %>
     <%= form.submit "Salvar" %>
 <% end %>
 
-<p>sdfsafd</p>
-
+<%# o <%= turbo_stream_from "updatechat" pecisa esta sempe antes do id que tu colocou no caso aqui de baixo  id="updatechat" %>
+<%= turbo_stream_from "updatechat" %>
 <div id="updatechat">
-  <%= render @room.chats %>
+  <% @room.chats.each do |chat| %>
+    <%= render "chats/chat", chat: chat %>
+  <% end %>
 </div>
 
-<%= turbo_stream_from @room, target: "updatechat" %>
-<%# precisa ter isso para ativar o  after_create_commit -> { broadcast_append_to room, target: "updatechat" }%>
+</turbo-frame>
 

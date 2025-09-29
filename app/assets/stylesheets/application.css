@@ -1,11 +1,85 @@
-
-
-
-*, body {
+*,
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
+
+.login-page {
+    height: 100vh;
+    background: #8a26d1;
+    background: #c8d9ed;
+    display: flex;
+}
+
+.login-page .login-page-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 450px;
+    background-color: #ffffff;
+    width: 300px;
+    margin: auto;
+    padding-top: 25px;
+}
+
+.login-page .login-page-form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.login-page .login-page-inputs {
+    height: 35px;
+    background-color: #d0d0d0;
+    width: 205px;
+    margin-top: 5px;
+    border: none;
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+
+.login-page .login-page-inputs:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.login-page .field.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.login-page .field.remember-me .label {
+    font-size: 11px;
+    color: #d0d0d0;
+    gap: 6px;
+}
+
+.login-page .actions .btn {
+    width: 205px;
+    height: 35px;
+    border: none;
+    text-transform: uppercase;
+    background-color: #ae28b5;
+    color: white;
+    cursor: pointer;
+}
+
+.login-page-signup {
+    text-decoration: none;
+    font-size: 12px;
+    color: #d0d0d0;
+}
+
+.login-page-forgot-your-password {
+    font-size: 10px;
+    color: #d0d0d0;
+}
+
+
 
 .card-post {
     padding-top: 10px;
@@ -19,4 +93,92 @@
     gap: 5px;
     border-radius: 28px;
     box-shadow: 0px 11px 29px -11px rgba(0, 0, 0, 0.75);
+}
+
+/* //// */
+
+
+
+.side-bar-container {
+    background: #011f4b;
+    height: 500px;
+    width: 65px;
+    padding-top: 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+.side-bar-container .side-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.side-bar-container .side-bar .img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* ////// */
+
+
+.rooms-home-page-container {
+    background-color: #b3cde0;
+    height: 100vh;
+    width: 100%;
+    padding-left: 50px;
+}
+
+.rooms-home-page-container>h5 {
+    font-size: 25px;
+    margin-top: 20px;
+    font-weight: normal;
+}
+
+.rooms-home-page-container .room-box-container .room-box {
+    box-shadow: 1px 2px 14px 1px rgba(0, 0, 0, 0.46);
+    -webkit-box-shadow: 1px 2px 14px 1px rgba(0, 0, 0, 0.46);
+    -moz-box-shadow: 1px 2px 14px 1px rgba(0, 0, 0, 0.46);
+    width: 320px;
+    height: 155px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.rooms-home-page-container .room-box-container .room-box .link-room {
+    text-align: center;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.users-online {
+    padding-top: 10px;
+    padding-left: 3px;
+    font-size: 12px;
+}
+
+.icon-online-offline {
+    height: auto;
+    width: 10px;
+}
+
+.rooms-home-page {
+    display: flex;
+    align-items: baseline;
+}
+
+
+.chat-open {
+    background: #011f4b;
+    width: 51%;
+    height: 500px;
+    border-radius: 20px;
+    margin-left: 100px;
+    display: none;
 }
