@@ -1,0 +1,5 @@
+<%= form_with model: @room, url: rooms_path, method: :post, local: true do | form | %>
+    <%= form.label "Name of the room" %>
+    <%= form.text_field :name %>
+    <%= form.submit "Create" %>
+<% end %>

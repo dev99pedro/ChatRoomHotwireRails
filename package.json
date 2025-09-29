@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@rails/webpacker": "5.4.4",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
     "sass": "^1.83.1",
     "sass-loader": "^16.0.4",
     "webpack": "4.46.0",
