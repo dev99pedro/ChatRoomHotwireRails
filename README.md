@@ -26,7 +26,7 @@ rails s
 * Rooms: Create a chat room or join an existing one.
 * Chat: Send messages and converse with other users in real time.
 
-![Initial image](https://github.com/dev99pedro/ChatRoomHotwireRails/blob/main/app/assets/images/ofcchat.png)
+![Initial image](https://github.com/dev99pedro/ChatRoomHotwireRails/blob/main/app/assets/images/chatpng.png)
 
 
 ## Links
