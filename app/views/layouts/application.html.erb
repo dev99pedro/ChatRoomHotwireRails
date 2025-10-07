@@ -25,8 +25,10 @@
   <body>
     
     <main class="container mx-auto mt-28 px-5 flex">
-      <div style="display: flex;background-color: #b3cde0">
-        <%= render "shared/side_bar" %>
+      <div class="main-container" style="display: flex;background-color: #ffffff ">
+        <% if user_signed_in? %>
+          <%= render "shared/side_bar" %>
+        <% end %>
         <%= yield %>
       </div>
     </main>

@@ -10,6 +10,6 @@ class User < ApplicationRecord
 
 
   
-  has_many :chats
+  has_many :chats, dependent: :destroy
   belongs_to :room, optional: true
 end

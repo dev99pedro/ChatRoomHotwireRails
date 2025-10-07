@@ -4,23 +4,58 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   static targets = ["openchat"];
+  static values = {
+    currentUser: String
+  }
 
   connect() {
+    this.observeChatUpdates()
+    this.highlightUserMessages()
+  }
 
+
+  observeChatUpdates() {
+    const chatContainer = document.querySelector("#room_chat")
+
+    const observer = new MutationObserver(() => {
+      this.highlightUserMessages()
+    })
+
+    observer.observe(chatContainer, {
+      childList: true,
+      subtree: true
+    })
   }
 
 
   openChat() {
     const displaychat = document.querySelector('.chat-open')
-    displaychat.style.display = "block"
-    const turboframe = document.getElementById("room_chat")
+    displaychat.style.display = "flex"
+  }
+
+  closeChat() {
+    const displaychat = document.querySelector('.chat-open')
+
+    if (displaychat.style.display === "flex") {
+      displaychat.style.display = "none"
+    }
   }
 
 
+  scrollToBottom() {
+    const displaychat = document.querySelector('.chat-open')
+    displaychat.scrollTop = displaychat.scrollHeight;
+  }
 
-
-
-
+  highlightUserMessages() {
+    const useranwser = document.querySelectorAll('.user-anwser')
+    useranwser.forEach((el) => {
+      console.log(el.getAttribute('userlogged'))
+      if (el.getAttribute('userlogged') === this.currentUserValue) {
+        el.style.background = '#0BA6DF'
+      }
+    })
+  }
 
 
 }

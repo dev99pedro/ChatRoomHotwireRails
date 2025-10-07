@@ -1,11 +1,11 @@
-
-
-
 <div class="rooms-home-page-container" data-controller="log-button">
   <% if user_signed_in? %>
-    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn-logout" %>
+    <div class="user">
+      <p style="text-decoration: underline"><%= current_user.login %></p>
+      <%= button_to  image_tag("/images/logout.png", alt: "Icon", class: "img-logout"), destroy_user_session_path, method: :delete, class: "btn-logout", style: "background: none; border: none; cursor: pointer" %>
+    </div>
   <% end %>
-  <h5>Rooms</h5>
+    <h5>Rooms</h5>
     <div class="rooms-home-page">
       <div>
         <%= turbo_stream_from "updatecountuser" %>
@@ -15,15 +15,12 @@
                 <div>
                   <%= render "rooms/countuser", room: room %>
                 </div>
-                <div class="link-room" >
+                <div class="link-room"  >
                   <%= link_to room.name, room_path(room),  data: {turbo_frame: "room_chat", "log-button-target": "openchat",  action: "click->log-button#openChat"} %><br>
                   <%# aqui ta chamando data: {turbo_frame: "qualquer nome"} %>
                 </div>
               </div>
           <% end %>
-        </div>
-        <div>
-          <%= link_to "Create Room", new_room_path%>
         </div>
       </div>
       <div class="chat-open">
