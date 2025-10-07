@@ -3,24 +3,40 @@
 <%# tudo que estiver dentro desse turbo-frame room_chat vai ser chamado e renderizado la na view index %>
 <turbo-frame id="room_chat">
 <%= turbo_stream_from "updateusername" %>
-<%= button_to "Back to rooms", room_path(@room), method: :delete, data: { confirm: 'Tem certeza que quer sair da sala?' } %>
-<%= render "rooms/room", room: @room %>
-<%# renderizando a partial %>
+
+<div class="chat-open-container" >
+  <div class="back-to-rooms-container">
+    <%= render "rooms/room", room: @room %>
+    <%= button_to room_path(@room), method: :delete, data: { confirm: 'Tem certeza que quer sair da sala?',   action: "click->log-button#closeChat" } , style: "background: none; border: none; cursor: pointer" ,form_class: "logout-form" do %>
+      <%= image_tag('/images/cross.png', alt: 'Logout', width: '20px') %>
+    <% end %>  
+  </div>
 
 
+  <%# o <%= turbo_stream_from "updatechat" pecisa esta sempe antes do id que tu colocou no caso aqui de baixo  id="updatechat" %>
+  <div data-controller="log-button"     data-log-button-current-user-value="<%= current_user.login %>" >
+    <%= turbo_stream_from "updatechat" %>
+    <div id="updatechat"      >
+      <% @room.chats.each do |chat| %>
+        <%= render "chats/chat",  chat: chat %>
+      <% end %>
+    </div>
 
-<%= form_with model: [@room, Chat.new] do | form | %> 
-    <%=form.text_field :content %>
-    <%= form.submit "Salvar" %>
-<% end %>
 
-<%# o <%= turbo_stream_from "updatechat" pecisa esta sempe antes do id que tu colocou no caso aqui de baixo  id="updatechat" %>
-<%= turbo_stream_from "updatechat" %>
-<div id="updatechat">
-  <% @room.chats.each do |chat| %>
-    <%= render "chats/chat", chat: chat %>
-  <% end %>
+    <%= form_with model: [@room, Chat.new] do | form | %> 
+    <div class="form-input-open-chat">
+        <%=form.text_field :content , style: "width: 90%;height: 30px;border-radius: 6px;border: none;", class: "input-text-message", data: {"log-button-target": "input" }  %>
+        <%= submit_tag '', src: "images/send.png", type: 'image', alt: 'Send', width: '30px', data: {action: "click->log-button#scrollToBottom"}  %>
+    </div>
+    <% end %> 
+    <%# mesma coisa que fazer def new
+      @room = Room.find(params[:room_id])
+      @chat = @room.chats.new
+    end no controller %> 
+  </div>
+
 </div>
+
 
 </turbo-frame>
 

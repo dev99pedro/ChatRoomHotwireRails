@@ -12,6 +12,7 @@ body {
     background: #8a26d1;
     background: #c8d9ed;
     display: flex;
+    width: 100%;
 }
 
 .login-page .login-page-box {
@@ -79,6 +80,12 @@ body {
     color: #d0d0d0;
 }
 
+.new-page {
+    height: 100vh;
+    padding-left: 30px;
+
+}
+
 
 
 .card-post {
@@ -126,14 +133,38 @@ body {
 
 
 .rooms-home-page-container {
-    background-color: #b3cde0;
+    background-color: #ffffff;
     height: 100vh;
     width: 100%;
     padding-left: 50px;
 }
 
+.rooms-home-page-container .user {
+    display: flex;
+    align-items: inherit;
+    justify-content: end;
+    gap: 16px;
+    padding-top: 10px;
+    padding-right: 7px;
+}
+
+.img-logout {
+    width: 15px;
+}
+
+.btn-logout {
+    background-color: none;
+    border: none;
+}
+
+.rooms-home-page-container .user p {
+    font-weight: bold;
+    font-size: 14px;
+}
+
 .rooms-home-page-container>h5 {
-    font-size: 25px;
+    font-size: 47px;
+    text-align: center;
     margin-top: 20px;
     font-weight: normal;
 }
@@ -144,7 +175,7 @@ body {
     -moz-box-shadow: 1px 2px 14px 1px rgba(0, 0, 0, 0.46);
     width: 320px;
     height: 155px;
-    background-color: #ffffff;
+    background-color: #b3cde0;
     margin-top: 20px;
     border-radius: 20px;
 }
@@ -170,9 +201,36 @@ body {
 
 .rooms-home-page {
     display: flex;
-    align-items: baseline;
 }
 
+#room_chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 30px;
+    width: 100%;
+}
+
+
+.input-text-message:focus {
+    outline: none;
+}
+
+.chat-open-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.chat-open-container .back-to-rooms-container {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+    padding-top: 12px;
+    padding-right: 10px;
+}
 
 .chat-open {
     background: #011f4b;
@@ -181,4 +239,78 @@ body {
     border-radius: 20px;
     margin-left: 100px;
     display: none;
+    padding-bottom: 20px;
+    overflow-y: auto;
+}
+
+.form-input-open-chat {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.user-anwser {
+    width: 90%;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media (min-width: 300px) and (max-width: 1000px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .side-bar-container {
+        width: 95%;
+        border-radius: 8px;
+        height: 56px;
+        margin-left: 0;
+        padding-top: 0;
+        align-items: center;
+        display: flex;
+        margin-top: 20px;
+    }
+
+
+    .side-bar-container .side-bar {
+        flex-direction: unset;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .rooms-home-page-container {
+        padding-left: unset;
+    }
+
+    .rooms-home-page {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .chat-open {
+        margin-left: unset;
+        width: 90%;
+        margin: auto;
+        margin-top: 40px;
+    }
+
+    .room-box-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .new-page {
+        height: unset;
+    }
 }

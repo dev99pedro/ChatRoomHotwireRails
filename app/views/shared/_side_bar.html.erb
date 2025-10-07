@@ -1,6 +1,6 @@
 <div class="side-bar-container">
     <div class="side-bar">
-        <%= image_tag("/images/house.png", alt: "Icon", class: "img")  %>
-        <%= image_tag("/images/chat.png", alt: "Icon", class: "img")  %>
+        <%= link_to image_tag("/images/house.png", alt: "Icon", class: "img") , rooms_path%>
+        <%= link_to image_tag("/images/chat.png", alt: "Icon", class: "img"), new_room_path%>
     </div>
 </div>

@@ -1,4 +1,8 @@
-<div id="<%= dom_id(chat) %>"> 
-  <p><strong><%= chat.user.login %>:</strong></p>
-  <p><%= chat.content %></p>
+
+<div id="<%= dom_id(chat) %>" class="user-anwser"  userlogged="<%= chat.user.login %>"  style="display: flex; margin-top: 20px; margin-bottom: 20px; gap: 5px;align-items: center;"> 
+  <p style="color: #ffffff;font-size: 14px"><strong><%= chat.user.login %>:</strong></p>
+  <div >
+    <p  style="color: #ffffff;font-size: 12px"><%= chat.content %></p>
+  </div>
 </div>
+

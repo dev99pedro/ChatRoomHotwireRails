@@ -1,5 +1,14 @@
+<div class="new-page">
+<h3>Create a room </h3>
 <%= form_with model: @room, url: rooms_path, method: :post, local: true do | form | %>
-    <%= form.label "Name of the room" %>
-    <%= form.text_field :name %>
-    <%= form.submit "Create" %>
+    <div class="new-page-form">
+        <div>
+        <%= form.label "Name of the room" %>
+        </div>
+        <div>
+        <%= form.text_field :name %>
+        <%= form.submit "Create" %> 
+        </div>
+    </div>
 <% end %>
+</div>
