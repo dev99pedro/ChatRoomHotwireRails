@@ -3,9 +3,10 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="log-button"
 export default class extends Controller {
 
-  static targets = ["openchat"];
+  static targets = ["openchat", "input"];
   static values = {
-    currentUser: String
+    currentUser: String,
+    input: String
   }
 
   connect() {
@@ -45,14 +46,17 @@ export default class extends Controller {
   scrollToBottom() {
     const displaychat = document.querySelector('.chat-open')
     displaychat.scrollTop = displaychat.scrollHeight;
+  
+    
   }
 
   highlightUserMessages() {
     const useranwser = document.querySelectorAll('.user-anwser')
     useranwser.forEach((el) => {
-      console.log(el.getAttribute('userlogged'))
+      
       if (el.getAttribute('userlogged') === this.currentUserValue) {
         el.style.background = '#0BA6DF'
+        this.inputTarget.value =  ""
       }
     })
   }
